@@ -1,0 +1,9 @@
+.env
+README.md
+env.sample
+.git/
+.gitignore
+Dockerfile
+.dockerignore
+node_modules
+CODEOWNERS
