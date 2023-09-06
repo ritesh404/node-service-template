@@ -15,7 +15,11 @@ function setGetRoute(route, fn) {
 }
 
 function setPostRoute(route, fn) {
-  app.get(route, fn);
+  app.post(route, fn);
+}
+
+function setPutRoute(route, fn) {
+  app.put(route, fn);
 }
 
 function setDeleteRoute(route, fn) {
@@ -30,6 +34,7 @@ module.exports = {
   start,
   setGetRoute,
   setPostRoute,
+  setPutRoute,
   setDeleteRoute,
   setPatchRoute,
   addMiddleware,
