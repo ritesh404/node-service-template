@@ -1,8 +1,9 @@
 import express from "express";
-import { addMiddleware, start, setGetRoute } from "./src/server";
+import { addMiddleware, start } from "./src/server";
 import requestLogger from "./src/middlewares/requestLogger";
 import logger from "./src/loggers";
 import errorLogger from "./src/middlewares/errorLogger";
+import setupRouting from "./src/routing";
 
 function startup() {
   addMiddleware(express.json());
@@ -10,9 +11,7 @@ function startup() {
   addMiddleware(requestLogger);
   addMiddleware(errorLogger);
 
-  setGetRoute("/health", function (req, res) {
-    res.json({ status: "alive" });
-  });
+  setupRouting();
 
   if (!process.env.PORT) throw Error("PORT is missing");
   else
